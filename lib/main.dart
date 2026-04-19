@@ -3,13 +3,14 @@ import 'components.dart';
 
 // Paleta
 class AppColors {
-  static const ironGrey = Color(0xFF36413E);
-  static const charcoal = Color(0xFF5D5E60);
-  static const thistle = Color(0xFFBEB2C8);
-  static const dustGrey = Color(0xFFD7D6D6);
+  static const inkBlack = Color(0xFF01161E);
+  static const darkTeal = Color(0xFF124559);
+  static const airForceBlue = Color(0xFF598392);
+  static const ashGrey = Color(0xFFAEC3B0);
+  static const beige = Color(0xFFEFF6E0);
 
-  static const mintLeaf = Color(0xFF03CEA4);
-  static const tomato = Color(0xFFFB4D3D);
+  // Mantido
+  static const harvestOrange = Color(0xFFF17300);
 }
 
 void main() {
@@ -25,13 +26,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Contador',
       theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.dustGrey,
+        scaffoldBackgroundColor: AppColors.beige,
         appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.ironGrey,
+          backgroundColor: AppColors.darkTeal,
           foregroundColor: Colors.white,
         ),
       ),
-      home: const MyHomePage(title: 'Contador Profissional'),
+      home: const MyHomePage(title: 'Contador'),
     );
   }
 }
@@ -66,26 +67,29 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
 
-      // ✅ DRAWER ADICIONADO AQUI
+      // Drawer
       drawer: Drawer(
         child: SafeArea(
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
               DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primaryContainer,
+                decoration: const BoxDecoration(
+                  color: AppColors.darkTeal,
                 ),
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
                     'Menu',
-                    style: Theme.of(context).textTheme.headlineSmall,
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                 ),
               ),
               ListTile(
-                leading: const Icon(Icons.pages),
+                leading: const Icon(Icons.pages, color: AppColors.darkTeal),
                 title: const Text('Componentes'),
                 onTap: () {
                   Navigator.pop(context);
@@ -104,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       body: Center(
         child: Card(
-          color: AppColors.thistle,
+          color: AppColors.airForceBlue,
           elevation: 6,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
@@ -122,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
-                    color: AppColors.ironGrey,
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -131,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: const TextStyle(
                     fontSize: 48,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.charcoal,
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 25),
@@ -144,8 +148,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       icon: const Icon(Icons.add),
                       label: const Text('Aumentar'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.mintLeaf,
-                        foregroundColor: Colors.black,
+                        backgroundColor: AppColors.ashGrey,
+                        foregroundColor: AppColors.inkBlack,
                       ),
                     ),
                     const SizedBox(width: 20),
@@ -154,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       icon: const Icon(Icons.remove),
                       label: const Text('Diminuir'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.tomato,
+                        backgroundColor: AppColors.harvestOrange,
                         foregroundColor: Colors.white,
                       ),
                     ),
