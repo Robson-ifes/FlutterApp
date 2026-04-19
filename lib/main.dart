@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'components.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-
+// Paleta
 class AppColors {
   static const ironGrey = Color(0xFF36413E);
   static const charcoal = Color(0xFF5D5E60);
-  static const rosyGranite = Color(0xFF8D8D92);
   static const thistle = Color(0xFFBEB2C8);
   static const dustGrey = Color(0xFFD7D6D6);
+
   static const mintLeaf = Color(0xFF03CEA4);
   static const tomato = Color(0xFFFB4D3D);
+}
+
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Counter App',
+      title: 'Contador',
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.dustGrey,
         appBarTheme: const AppBarTheme(
@@ -64,6 +65,43 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+
+      // ✅ DRAWER ADICIONADO AQUI
+      drawer: Drawer(
+        child: SafeArea(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                ),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'Menu',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.pages),
+                title: const Text('Componentes'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const ComponentsPage(),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+
       body: Center(
         child: Card(
           color: AppColors.thistle,
@@ -108,8 +146,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.mintLeaf,
                         foregroundColor: Colors.black,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 12),
                       ),
                     ),
                     const SizedBox(width: 20),
@@ -120,8 +156,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.tomato,
                         foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 12),
                       ),
                     ),
                   ],
