@@ -1,17 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components.dart';
-
-// Paleta
-class AppColors {
-  static const inkBlack = Color(0xFF01161E);
-  static const darkTeal = Color(0xFF124559);
-  static const airForceBlue = Color(0xFF598392);
-  static const ashGrey = Color(0xFFAEC3B0);
-  static const beige = Color(0xFFEFF6E0);
-
-  // Mantido
-  static const harvestOrange = Color(0xFFF17300);
-}
+import 'app_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,11 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Contador',
       theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.beige,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.darkTeal,
-          foregroundColor: Colors.white,
-        ),
+        primarySwatch: Colors.green,
       ),
       home: const MyHomePage(title: 'Contador'),
     );
@@ -63,71 +48,50 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.background,
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
       ),
-
-      // Drawer
       drawer: Drawer(
-        child: SafeArea(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: const BoxDecoration(
-                  color: AppColors.darkTeal,
-                ),
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    'Menu',
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+        backgroundColor: AppColors.background,
+        child: ListView(
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: AppColors.primary),
+              child: Text(
+                'Menu',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ),
+            ListTile(
+              title: const Text('Componentes'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const ComponentsPage(),
                   ),
-                ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.pages, color: AppColors.darkTeal),
-                title: const Text('Componentes'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const ComponentsPage(),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
+                );
+              },
+            ),
+          ],
         ),
       ),
-
       body: Center(
         child: Card(
-          color: AppColors.airForceBlue,
-          elevation: 6,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
+          color: AppColors.surface,
+          elevation: 5,
+          margin: const EdgeInsets.all(20),
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 40,
-              vertical: 30,
-            ),
+            padding: const EdgeInsets.all(30),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
                   'Você clicou nos botões essa quantidade de vezes:',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
                 ),
                 const SizedBox(height: 10),
                 Text(
@@ -135,32 +99,29 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: const TextStyle(
                     fontSize: 48,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.secondary,
                   ),
                 ),
-                const SizedBox(height: 25),
-
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton.icon(
+                    ElevatedButton(
                       onPressed: _incrementCounter,
-                      icon: const Icon(Icons.add),
-                      label: const Text('Aumentar'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.ashGrey,
-                        foregroundColor: AppColors.inkBlack,
+                        backgroundColor: AppColors.primary,
+                        foregroundColor: Colors.white,
                       ),
+                      child: const Text('Aumentar'),
                     ),
                     const SizedBox(width: 20),
-                    ElevatedButton.icon(
+                    ElevatedButton(
                       onPressed: _decrementCounter,
-                      icon: const Icon(Icons.remove),
-                      label: const Text('Diminuir'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.harvestOrange,
                         foregroundColor: Colors.white,
                       ),
+                      child: const Text('Diminuir'),
                     ),
                   ],
                 ),
