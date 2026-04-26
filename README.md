@@ -1,156 +1,74 @@
-# 📱 Aplicação Flutter – Contador com Navegação e Identidade Visual
+content = """# 📱 Contador Flutter Interativo
 
-## 📌 Descrição
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 
-Este projeto consiste no desenvolvimento de uma aplicação utilizando o framework **Flutter**, com o objetivo de implementar um contador interativo aliado a uma interface personalizada e navegação entre telas.
+## 📌 Descrição do Projeto
 
-A aplicação permite ao usuário:
-
-* **Aumentar** e **diminuir** um contador
-* Visualizar o número de interações realizadas
-* Acessar uma segunda tela por meio de um **menu lateral (Drawer)**
+Este projeto é uma aplicação **Flutter** desenvolvida para fins acadêmicos, focada na implementação de um **contador interativo** com navegação estruturada e uma identidade visual personalizada. A aplicação demonstra o uso de estados dinâmicos, menus laterais e organização modular de código.
 
 ---
 
 ## 🎯 Objetivos da Atividade
 
-* Compreender a estrutura básica de um projeto Flutter
-* Utilizar **widgets Stateful e Stateless**
-* Implementar **gerenciamento de estado com `setState()`**
-* Criar navegação entre telas com `Navigator`
-* Utilizar o componente **Drawer** para menu lateral
+Ao longo deste projeto, foram explorados os seguintes conceitos:
+- [x] **Estrutura Básica:** Configuração e inicialização de apps Flutter.
+- [x] **Widgets:** Diferenciação entre *Stateless* e *Stateful*.
+- [x] **Estado:** Gerenciamento de estado local via `setState()`.
+- [x] **Navegação:** Uso de `Navigator` para transição entre telas.
+- [x] **UI/UX:** Implementação de `Drawer` (menu lateral) e paleta de cores customizada.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias e Ferramentas
 
-* **Flutter**
-* **Dart**
-* **Material Design**
-
----
-
-## 🧱 Estrutura do Projeto
-
-### 🔹 `main.dart`
-
-Responsável por:
-
-* Configuração da aplicação (`MaterialApp`)
-* Definição do tema e paleta de cores
-* Tela principal com contador
-* Implementação do menu lateral (Drawer)
-* Navegação para a página de componentes
+* **Linguagem:** [Dart](https://dart.dev/)
+* **Framework:** [Flutter](https://flutter.dev/)
+* **Design:** Material Design
 
 ---
 
-### 🔹 `components.dart`
+## 🧱 Estrutura de Arquivos
 
-Contém a classe `ComponentsPage`, que representa uma segunda tela da aplicação.
+O projeto está organizado de forma modular para facilitar a manutenção:
 
-Essa tela possui:
-
-* `AppBar`
-* Corpo propositalmente vazio (conforme orientação da atividade)
-
----
-
-## ⚙️ Funcionalidades Implementadas
-
-* Contador interativo
-* Botão **Aumentar**
-* Botão **Diminuir**
-* Atualização dinâmica da interface com `setState`
-* Layout com `Column`, `Row` e `Card`
-* Menu lateral com `Drawer`
-* Navegação entre telas com `Navigator.push`
-* Fechamento automático do menu com `Navigator.pop`
+* 📂 `main.dart`: Ponto de entrada, configuração do `MaterialApp` e tela do contador.
+* 📂 `components.dart`: Tela secundária apresentando diversos widgets (*Cards, Lists, Grids*).
+* 📂 `app_colors.dart`: Centralização da paleta de cores (Design System).
 
 ---
 
-## 🎨 Identidade Visual
+## ⚙️ Funcionalidades
 
-A aplicação utiliza uma paleta de cores personalizada:
-
-| Cor            | Código HEX | Uso                           |
-| -------------- | ---------- | ----------------------------- |
-| Ink Black      | #01161E    | Contraste / elementos escuros |
-| Dark Teal      | #124559    | AppBar e menu                 |
-| Air Force Blue | #598392    | Card central                  |
-| Ash Grey       | #AEC3B0    | Botão secundário              |
-| Beige          | #EFF6E0    | Fundo da aplicação            |
-| Harvest Orange | #F17300    | Botão de destaque             |
+* ➕ **Aumentar/Diminuir:** Controle total sobre o valor do contador.
+* 🔄 **Atualização Dinâmica:** Interface reativa que reflete mudanças instantaneamente.
+* 🧭 **Menu Lateral (Drawer):** Navegação fluida para outras seções do app.
+* 🖼️ **Galeria de Componentes:** Demonstração de layouts com `ListView` e `GridView`.
 
 ---
 
-## 🧭 Navegação
+## 🎨 Identidade Visual (Paleta de Cores)
 
-A navegação é realizada por meio do **Drawer**, permitindo acesso à página:
+A aplicação utiliza uma paleta sóbria e profissional:
 
-* **Componentes**
+| Cor | Hexadecimal | Elemento |
+| :--- | :--- | :--- |
+| **Background** | `#D6E5E3` | Fundo das Telas |
+| **Primary** | `#517664` | AppBar e Primários |
+| **Surface** | `#9FD8CB` | Destaques e Cards |
+| **Accent** | `#CACFD6` | Elementos Neutros |
+| **Secondary** | `#2D3319` | Tipografia e Contraste |
+| **Harvest Orange**| `#F17300` | Botões de Ação (CTA) |
 
-Código utilizado:
+---
+
+## 🧭 Lógica de Navegação
+
+A transição entre a tela principal e a página de componentes é feita através do menu lateral:
 
 ```dart
+// Exemplo de navegação utilizada
 Navigator.push(
   context,
   MaterialPageRoute(builder: (_) => const ComponentsPage()),
 );
-```
-
----
-
-## ▶️ Execução do Projeto
-
-1. Clonar o repositório:
-
-```bash
-git clone https://github.com/Robson-ifes/FlutterApp.git
-```
-
-2. Acessar a pasta do projeto:
-
-```bash
-cd FlutterApp
-```
-
-3. Executar o projeto:
-
-```bash
-flutter run
-```
-
----
-
-## 🧠 Conceitos Trabalhados
-
-* Estrutura de aplicações Flutter
-* Widgets (`StatelessWidget` e `StatefulWidget`)
-* Gerenciamento de estado
-* Layout com `Column`, `Row` e `Padding`
-* Navegação entre telas
-* Componentes do Material Design
-* Organização e modularização do código
-
----
-
-## 🚀 Possíveis Melhorias
-
-* Adicionar conteúdo à página de componentes
-* Implementar animações no contador
-* Evitar valores negativos no contador
-* Persistência de dados com `shared_preferences`
-* Melhorar responsividade para diferentes dispositivos
-
----
-
-## 👨‍💻 Autor
-
-**Robson Ribeiro**
-Aluno de Tecnologia em Sistemas para Internet – Ifes
-
----
-
-## 📄 Licença
-
-Projeto desenvolvido para fins acadêmicos.
