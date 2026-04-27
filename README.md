@@ -47,28 +47,77 @@ O projeto está organizado de forma modular para facilitar a manutenção:
 
 ---
 
-## 🎨 Identidade Visual (Paleta de Cores)
+## 🎨 Identidade Visual
 
-A aplicação utiliza uma paleta sóbria e profissional:
+A aplicação utiliza **duas abordagens visuais distintas**, com objetivos diferentes:
 
-| Cor | Hexadecimal | Elemento |
-| :--- | :--- | :--- |
-| **Background** | `#D6E5E3` | Fundo das Telas |
-| **Primary** | `#517664` | AppBar e Primários |
-| **Surface** | `#9FD8CB` | Destaques e Cards |
-| **Accent** | `#CACFD6` | Elementos Neutros |
-| **Secondary** | `#2D3319` | Tipografia e Contraste |
-| **Harvest Orange**| `#F17300` | Botões de Ação (CTA) |
+---
+
+### 🔹 Tela Principal (`main.dart`) – Identidade Personalizada
+
+A tela principal foi desenvolvida com uma paleta de cores própria, buscando uma estética mais moderna e harmônica:
+
+| Cor            | Código HEX | Uso                           |
+|----------------|-----------|-------------------------------|
+| Background     | #D6E5E3   | Fundo da aplicação            |
+| Primary        | #517664   | AppBar e elementos principais |
+| Surface        | #9FD8CB   | Cards e áreas de destaque     |
+| Accent         | #CACFD6   | Elementos secundários         |
+| Secondary      | #2D3319   | Textos e contraste            |
+| Harvest Orange | #F17300   | Botões de ação (CTA)          |
+
+Essa paleta foi centralizada no arquivo `app_colors.dart`, promovendo reutilização e organização do código.
+
+---
+
+### 🔹 Tela de Componentes (`components.dart`) – Padrão Material Design
+
+A tela de componentes segue o modelo proposto pelo professor, utilizando a cor **Deep Purple** do Material Design para destacar os exemplos de widgets.
+
+Características:
+
+- Uso de `Colors.deepPurple` e suas variações (`shade50`, `shade100`, `shade200`)
+- Aplicação direta das cores nos widgets
+- Foco na demonstração visual dos componentes Flutter
 
 ---
 
 ## 🧭 Lógica de Navegação
 
-A transição entre a tela principal e a página de componentes é feita através do menu lateral:
+A transição entre a tela principal e a página de componentes é feita através do menu lateral.
 
-```dart
-// Exemplo de navegação utilizada
-Navigator.push(
-  context,
-  MaterialPageRoute(builder: (_) => const ComponentsPage()),
-);
+---
+
+## 🧠 Conceitos Trabalhados
+
+- **Estrutura de aplicações Flutter**: Organização de pastas e fluxo de inicialização.
+- **Widgets (`StatelessWidget` e `StatefulWidget`)**: Diferenciação entre componentes estáticos e dinâmicos.
+- **Gerenciamento de estado**: Uso de `setState` para atualização de dados em tempo real.
+- **Layout**: Construção de interfaces com `Column`, `Row`, `Padding` e `Card`.
+- **Navegação**: Fluxo entre telas e rotas.
+- **Componentes do Material Design**: Aplicação de padrões visuais modernos.
+- **Organização modular**: Código limpo e dividido por responsabilidades.
+- **Centralização de estilos**: Padronização de cores e temas.
+
+---
+
+## 🚀 Possíveis Melhorias
+
+* [ ] Implementar animações no contador.
+* [ ] Validar contador para evitar valores negativos.
+* [ ] Persistência de dados com `shared_preferences`.
+* [ ] Melhorar a responsividade para diferentes telas.
+* [ ] Criar temas globais com `ThemeData`.
+* [ ] Adicionar mais componentes reutilizáveis.
+
+---
+
+## 👨‍💻 Autor
+
+**RobinhoDev** 🎓 Aluno de Tecnologia em Sistemas para Internet – **Ifes**
+
+---
+
+## 📄 Licença
+
+Projeto desenvolvido para **fins acadêmicos**.
