@@ -5,7 +5,7 @@ Bem-vindo ao meu repositório! Este projeto foi desenvolvido como parte de uma a
 ## 🎯 O Desafio
 A tarefa consistia em criar a estrutura base de um aplicativo utilizando o **Flutter**, mas com um diferencial importante: realizar todo o processo **sem instalar nada localmente**. 
 
-Para isso, utilizei o **Project IDX**, a nova plataforma do Google que integra o desenvolvimento Flutter com a infraestrutura do Firebase e da Google Cloud diretamente no navegador.
+Para isso, utilizei o **Project IDX**, a plataforma do Google que integra o desenvolvimento Flutter com a infraestrutura do Firebase e da Google Cloud diretamente no navegador.
 
 ## 🛠️ Tecnologias Utilizadas
 * **Flutter:** Framework para criação do app.
