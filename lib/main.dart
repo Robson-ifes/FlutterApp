@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components.dart';
-import 'app_colors.dart';
+import 'theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +14,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Contador',
+
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        colorScheme: MaterialTheme.lightScheme(),
+        useMaterial3: true,
       ),
+
+      darkTheme: ThemeData(
+        colorScheme: MaterialTheme.darkScheme(),
+        useMaterial3: true,
+      ),
+
       home: const MyHomePage(title: 'Contador'),
     );
   }
@@ -24,6 +32,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
   final String title;
 
   @override
@@ -48,26 +57,32 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
       appBar: AppBar(
         title: Text(widget.title),
-        backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
       ),
+
       drawer: Drawer(
-        backgroundColor: AppColors.background,
         child: ListView(
           children: [
             const DrawerHeader(
-              decoration: BoxDecoration(color: AppColors.primary),
+              decoration: BoxDecoration(
+                color: Colors.deepPurple,
+              ),
               child: Text(
                 'Menu',
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                ),
               ),
             ),
+
             ListTile(
+              leading: const Icon(Icons.widgets),
               title: const Text('Componentes'),
               onTap: () {
+                Navigator.pop(context);
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -79,49 +94,53 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+
       body: Center(
         child: Card(
-          color: AppColors.surface,
-          elevation: 5,
-          margin: const EdgeInsets.all(20),
+          elevation: 6,
           child: Padding(
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.all(24),
+
             child: Column(
               mainAxisSize: MainAxisSize.min,
+
               children: [
                 const Text(
                   'Você clicou nos botões essa quantidade de vezes:',
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 10),
+
+                const SizedBox(height: 16),
+
                 Text(
                   '$_counter',
-                  style: const TextStyle(
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.secondary,
-                  ),
+                  style: Theme.of(context)
+                      .textTheme
+                      .displayMedium,
                 ),
-                const SizedBox(height: 20),
+
+                const SizedBox(height: 24),
+
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment:
+                      MainAxisAlignment.center,
+
                   children: [
-                    ElevatedButton(
+                    FilledButton.icon(
                       onPressed: _incrementCounter,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary,
-                        foregroundColor: Colors.white,
-                      ),
-                      child: const Text('Aumentar'),
+                      icon: const Icon(Icons.add),
+                      label: const Text('Aumentar'),
                     ),
-                    const SizedBox(width: 20),
-                    ElevatedButton(
+
+                    const SizedBox(width: 16),
+
+                    FilledButton.icon(
                       onPressed: _decrementCounter,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.harvestOrange,
-                        foregroundColor: Colors.white,
+                      style: FilledButton.styleFrom(
+                        backgroundColor: Colors.orange,
                       ),
-                      child: const Text('Diminuir'),
+                      icon: const Icon(Icons.remove),
+                      label: const Text('Diminuir'),
                     ),
                   ],
                 ),
