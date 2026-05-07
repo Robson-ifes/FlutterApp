@@ -1,32 +1,42 @@
-# 📱 Aplicação Flutter – Contador com Navegação e Identidade Visual
+# 📱 Aplicação Flutter – Material 3 e Componentes Interativos (Semana 10)
 
-## 📌 Descrição
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
+![Material 3](https://img.shields.io/badge/Material%203-UI-blueviolet?style=for-the-badge)
 
-Este projeto consiste no desenvolvimento de uma aplicação utilizando o framework **Flutter**, com o objetivo de implementar um contador interativo aliado a uma interface personalizada e navegação entre telas.
+---
 
-A aplicação permite ao usuário:
+## 📌 Descrição do Projeto
 
-* **Aumentar** e **diminuir** um contador
-* Visualizar o número de interações realizadas
-* Acessar uma segunda tela por meio de um **menu lateral (Drawer)**
+Este projeto consiste no desenvolvimento de uma aplicação em **Flutter**, utilizando conceitos de **Material Design 3**, gerenciamento de estado e navegação entre telas.
+
+A aplicação possui:
+
+- Uma tela principal com contador interativo
+- Navegação lateral utilizando `Drawer`
+- Uma tela de componentes com diversos widgets do Flutter
+- Implementação de temas (`light` e `dark`) utilizando `ThemeData`
+- Estrutura modularizada para melhor organização do código
 
 ---
 
 ## 🎯 Objetivos da Atividade
 
-* Compreender a estrutura básica de um projeto Flutter
-* Utilizar **widgets Stateful e Stateless**
-* Implementar **gerenciamento de estado com `setState()`**
-* Criar navegação entre telas com `Navigator`
-* Utilizar o componente **Drawer** para menu lateral
+- Trabalhar com **Material Design 3**
+- Implementar temas personalizados com `ThemeData`
+- Utilizar `ColorScheme`
+- Aplicar navegação entre telas
+- Explorar widgets interativos do Flutter
+- Utilizar `StatefulWidget` e `setState`
+- Organizar aplicações Flutter de forma modular
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Flutter**
-* **Dart**
-* **Material Design**
+- **Flutter**
+- **Dart**
+- **Material Design 3**
 
 ---
 
@@ -36,121 +46,90 @@ A aplicação permite ao usuário:
 
 Responsável por:
 
-* Configuração da aplicação (`MaterialApp`)
-* Definição do tema e paleta de cores
-* Tela principal com contador
-* Implementação do menu lateral (Drawer)
-* Navegação para a página de componentes
+- Inicialização da aplicação
+- Configuração do `MaterialApp`
+- Aplicação dos temas (`lightTheme` e `darkTheme`)
+- Tela principal com contador
+- Navegação utilizando `Drawer`
+
+---
+
+### 🔹 `theme.dart`
+
+Arquivo responsável pela configuração dos temas da aplicação.
+
+Implementa:
+
+- `MaterialTheme.lightScheme()`
+- `MaterialTheme.darkScheme()`
+- `ColorScheme.fromSeed()`
+- Suporte ao Material 3
 
 ---
 
 ### 🔹 `components.dart`
 
-Contém a classe `ComponentsPage`, que representa uma segunda tela da aplicação.
+Tela secundária contendo exemplos de widgets do Flutter.
 
-Essa tela possui:
+#### Widgets Utilizados
 
-* `AppBar`
-* Corpo propositalmente vazio (conforme orientação da atividade)
+##### Layouts
+- `Card`
+- `Container`
+- `ListView`
+- `GridView`
+- `Stack`
+- `SingleChildScrollView`
+
+##### Botões
+- `ElevatedButton`
+- `FilledButton`
+- `OutlinedButton`
+- `TextButton`
+- `IconButton`
+- `SegmentedButton`
+
+##### Componentes Interativos
+- `Checkbox`
+- `Switch`
+- `Radio`
+- `Slider`
+- `DropdownButton`
+- `TextField`
+
+##### Outros Componentes
+- `Chip`
+- `Badge`
+- `PopupMenuButton`
+- `AlertDialog`
 
 ---
 
-## ⚙️ Funcionalidades Implementadas
+## ⚙️ Funcionalidades
 
-* Contador interativo
-* Botão **Aumentar**
-* Botão **Diminuir**
-* Atualização dinâmica da interface com `setState`
-* Layout com `Column`, `Row` e `Card`
-* Menu lateral com `Drawer`
-* Navegação entre telas com `Navigator.push`
-* Fechamento automático do menu com `Navigator.pop`
-
----
-
-## 🎨 Identidade Visual
-
-A aplicação utiliza uma paleta de cores personalizada:
-
-| Cor            | Código HEX | Uso                           |
-| -------------- | ---------- | ----------------------------- |
-| Ink Black      | #01161E    | Contraste / elementos escuros |
-| Dark Teal      | #124559    | AppBar e menu                 |
-| Air Force Blue | #598392    | Card central                  |
-| Ash Grey       | #AEC3B0    | Botão secundário              |
-| Beige          | #EFF6E0    | Fundo da aplicação            |
-| Harvest Orange | #F17300    | Botão de destaque             |
+- ➕ Incremento do contador
+- ➖ Decremento do contador
+- 🔄 Atualização dinâmica da interface com `setState`
+- 🧭 Navegação entre telas
+- 🎨 Aplicação de temas Material 3
+- 🌙 Estrutura preparada para modo escuro
+- 🧪 Demonstração prática de diversos widgets
 
 ---
 
-## 🧭 Navegação
+## 🎨 Material Design 3
 
-A navegação é realizada por meio do **Drawer**, permitindo acesso à página:
-
-* **Componentes**
-
-Código utilizado:
+A aplicação utiliza o sistema de temas do Material 3 através de:
 
 ```dart
-Navigator.push(
-  context,
-  MaterialPageRoute(builder: (_) => const ComponentsPage()),
-);
-```
+theme: ThemeData(
+  colorScheme: MaterialTheme.lightScheme(),
+  useMaterial3: true,
+),
 
----
+darkTheme: ThemeData(
+  colorScheme: MaterialTheme.darkScheme(),
+  useMaterial3: true,
+),
 
-## ▶️ Execução do Projeto
 
-1. Clonar o repositório:
-
-```bash
-git clone https://github.com/Robson-ifes/FlutterApp.git
-```
-
-2. Acessar a pasta do projeto:
-
-```bash
-cd FlutterApp
-```
-
-3. Executar o projeto:
-
-```bash
-flutter run
-```
-
----
-
-## 🧠 Conceitos Trabalhados
-
-* Estrutura de aplicações Flutter
-* Widgets (`StatelessWidget` e `StatefulWidget`)
-* Gerenciamento de estado
-* Layout com `Column`, `Row` e `Padding`
-* Navegação entre telas
-* Componentes do Material Design
-* Organização e modularização do código
-
----
-
-## 🚀 Possíveis Melhorias
-
-* Adicionar conteúdo à página de componentes
-* Implementar animações no contador
-* Evitar valores negativos no contador
-* Persistência de dados com `shared_preferences`
-* Melhorar responsividade para diferentes dispositivos
-
----
-
-## 👨‍💻 Autor
-
-**Robson Ribeiro**
-Aluno de Tecnologia em Sistemas para Internet – Ifes
-
----
-
-## 📄 Licença
-
-Projeto desenvolvido para fins acadêmicos.
