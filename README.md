@@ -1,24 +1,33 @@
-# 📱 Aplicação Flutter – Contador com Navegação e Identidade Visual
+# 📱 Aplicação Flutter – Tabela de Alunos com Ordenação Dinâmica
 
 ## 📌 Descrição
 
-Este projeto consiste no desenvolvimento de uma aplicação utilizando o framework **Flutter**, com o objetivo de implementar um contador interativo aliado a uma interface personalizada e navegação entre telas.
+Este projeto consiste no desenvolvimento de uma aplicação utilizando o framework **Flutter**, com foco na exibição de dados em formato tabular utilizando o widget `DataTable`.
 
-A aplicação permite ao usuário:
+A aplicação apresenta uma tabela de alunos contendo:
 
-* **Aumentar** e **diminuir** um contador
-* Visualizar o número de interações realizadas
-* Acessar uma segunda tela por meio de um **menu lateral (Drawer)**
+* Nome
+* Idade
+* Nota
+
+Além disso, o sistema permite realizar:
+
+* Ordenação crescente e decrescente
+* Navegação entre telas
+* Rolagem horizontal e vertical
+* Organização modular do código
 
 ---
 
 ## 🎯 Objetivos da Atividade
 
-* Compreender a estrutura básica de um projeto Flutter
-* Utilizar **widgets Stateful e Stateless**
-* Implementar **gerenciamento de estado com `setState()`**
-* Criar navegação entre telas com `Navigator`
-* Utilizar o componente **Drawer** para menu lateral
+* Trabalhar com listas de objetos em Dart
+* Criar modelos de dados utilizando classes
+* Utilizar widgets `StatefulWidget`
+* Implementar tabelas com `DataTable`
+* Criar ordenação dinâmica de colunas
+* Utilizar navegação entre telas com `Navigator`
+* Organizar arquivos e componentes da aplicação
 
 ---
 
@@ -36,65 +45,102 @@ A aplicação permite ao usuário:
 
 Responsável por:
 
-* Configuração da aplicação (`MaterialApp`)
-* Definição do tema e paleta de cores
-* Tela principal com contador
-* Implementação do menu lateral (Drawer)
-* Navegação para a página de componentes
+* Inicialização da aplicação
+* Configuração do `MaterialApp`
+* Definição de temas e paleta de cores
+* Implementação do menu lateral (`Drawer`)
+* Navegação entre telas
+
+---
+
+### 🔹 `students.dart`
+
+Arquivo responsável pela modelagem dos dados.
+
+Contém:
+
+* Classe `Student`
+* Lista de estudantes (`List<Student>`)
+
+Exemplo:
+
+```dart
+class Student {
+  final String name;
+  final int age;
+  final double grade;
+
+  Student({
+    required this.name,
+    required this.age,
+    required this.grade,
+  });
+}
+```
+
+---
+
+### 🔹 `students_page.dart`
+
+Responsável pela exibição da tabela de alunos.
+
+Implementa:
+
+* `DataTable`
+* Ordenação dinâmica das colunas
+* Rolagem horizontal e vertical
+* Atualização da interface com `setState`
 
 ---
 
 ### 🔹 `components.dart`
 
-Contém a classe `ComponentsPage`, que representa uma segunda tela da aplicação.
-
-Essa tela possui:
-
-* `AppBar`
-* Corpo propositalmente vazio (conforme orientação da atividade)
+Tela secundária utilizada para navegação da aplicação.
 
 ---
 
 ## ⚙️ Funcionalidades Implementadas
 
-* Contador interativo
-* Botão **Aumentar**
-* Botão **Diminuir**
-* Atualização dinâmica da interface com `setState`
-* Layout com `Column`, `Row` e `Card`
-* Menu lateral com `Drawer`
-* Navegação entre telas com `Navigator.push`
-* Fechamento automático do menu com `Navigator.pop`
+* Exibição de tabela de alunos
+* Ordenação por:
+  * Nome
+  * Idade
+  * Nota
+* Alternância entre ordem crescente e decrescente
+* Rolagem horizontal e vertical
+* Navegação entre telas
+* Menu lateral (`Drawer`)
+* Organização modular do projeto
 
 ---
 
 ## 🎨 Identidade Visual
 
-A aplicação utiliza uma paleta de cores personalizada:
+A aplicação utiliza uma paleta personalizada inspirada em tons modernos e minimalistas:
 
 | Cor            | Código HEX | Uso                           |
 | -------------- | ---------- | ----------------------------- |
-| Ink Black      | #01161E    | Contraste / elementos escuros |
-| Dark Teal      | #124559    | AppBar e menu                 |
-| Air Force Blue | #598392    | Card central                  |
-| Ash Grey       | #AEC3B0    | Botão secundário              |
+| Ink Black      | #01161E    | Elementos escuros             |
+| Dark Teal      | #124559    | Barra superior e navegação    |
+| Air Force Blue | #598392    | Componentes centrais          |
+| Ash Grey       | #AEC3B0    | Elementos secundários         |
 | Beige          | #EFF6E0    | Fundo da aplicação            |
-| Harvest Orange | #F17300    | Botão de destaque             |
+| Harvest Orange | #F17300    | Destaques e ações importantes |
 
 ---
 
 ## 🧭 Navegação
 
-A navegação é realizada por meio do **Drawer**, permitindo acesso à página:
+A navegação é realizada utilizando `Navigator.push()` por meio do menu lateral (`Drawer`).
 
-* **Componentes**
-
-Código utilizado:
+Exemplo:
 
 ```dart
 Navigator.push(
   context,
-  MaterialPageRoute(builder: (_) => const ComponentsPage()),
+  MaterialPageRoute(
+    builder: (_) => const StudentsPage(),
+  ),
 );
 ```
 
@@ -102,22 +148,40 @@ Navigator.push(
 
 ## ▶️ Execução do Projeto
 
-1. Clonar o repositório:
+### 1️⃣ Clonar o repositório
 
 ```bash
 git clone https://github.com/Robson-ifes/FlutterApp.git
 ```
 
-2. Acessar a pasta do projeto:
+---
+
+### 2️⃣ Acessar a pasta do projeto
 
 ```bash
 cd FlutterApp
 ```
 
-3. Executar o projeto:
+---
+
+### 3️⃣ Instalar dependências
+
+```bash
+flutter pub get
+```
+
+---
+
+### 4️⃣ Executar o projeto
 
 ```bash
 flutter run
+```
+
+Ou no navegador:
+
+```bash
+flutter run -d chrome
 ```
 
 ---
@@ -125,28 +189,32 @@ flutter run
 ## 🧠 Conceitos Trabalhados
 
 * Estrutura de aplicações Flutter
-* Widgets (`StatelessWidget` e `StatefulWidget`)
-* Gerenciamento de estado
-* Layout com `Column`, `Row` e `Padding`
+* Classes e objetos em Dart
+* Listas tipadas (`List<Student>`)
+* Widgets `StatefulWidget`
+* Gerenciamento de estado com `setState`
+* Tabelas com `DataTable`
+* Ordenação dinâmica
+* Rolagem com `SingleChildScrollView`
 * Navegação entre telas
-* Componentes do Material Design
-* Organização e modularização do código
+* Organização modular de arquivos
 
 ---
 
 ## 🚀 Possíveis Melhorias
 
-* Adicionar conteúdo à página de componentes
-* Implementar animações no contador
-* Evitar valores negativos no contador
-* Persistência de dados com `shared_preferences`
-* Melhorar responsividade para diferentes dispositivos
+* Adicionar busca de alunos
+* Implementar filtros por nota
+* Adicionar persistência de dados
+* Consumir dados de API externa
+* Melhorar responsividade da tabela
+* Adicionar paginação
 
 ---
 
 ## 👨‍💻 Autor
 
-**Robson Ribeiro**
+**Robson Ribeiro**  
 Aluno de Tecnologia em Sistemas para Internet – Ifes
 
 ---
