@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components.dart';
+import 'students_page.dart';
 import 'theme.dart';
 
 void main() {
@@ -91,6 +92,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
+
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Alunos'),
+              onTap: () {
+                Navigator.pop(context);
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const StudentsPage(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -114,16 +130,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 Text(
                   '$_counter',
-                  style: Theme.of(context)
-                      .textTheme
-                      .displayMedium,
+                  style: Theme.of(context).textTheme.displayMedium,
                 ),
 
                 const SizedBox(height: 24),
 
                 Row(
-                  mainAxisAlignment:
-                      MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
 
                   children: [
                     FilledButton.icon(
